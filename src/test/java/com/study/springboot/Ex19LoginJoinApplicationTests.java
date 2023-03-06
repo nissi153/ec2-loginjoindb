@@ -8,6 +8,11 @@ class Ex19LoginJoinApplicationTests {
 
 	@Test
 	void contextLoads() {
+
+	}
+
+	@Test
+	void printTest(){
 		System.out.println("test!!");
 	}
 

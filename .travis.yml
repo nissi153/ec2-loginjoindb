@@ -41,7 +41,7 @@ deploy:
     bucket: travis-deploy-bucket
     key : springboot-webservice.zip
     bundle_type : zip
-    application : springboot-webservice
+    application : ec2-loginjoindb  #CodeDeploy 애플리케이션 이름
     deployment_group : ec2-loginjoindb-group
     region: ap-northeast-2
     wait-until-deployed : true

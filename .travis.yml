@@ -42,7 +42,7 @@ deploy:
     key : springboot-webservice.zip
     bundle_type : zip
     application : springboot-webservice
-    deplyment_group : ec2-loginjoindb-group
+    deployment_group : ec2-loginjoindb-group
     region: ap-northeast-2
     wait-until-deployed : true
 

@@ -31,7 +31,7 @@ deploy:
     skip_cleanup: true
     acl: private
     local_dir: deploy
-    wait_until_deployed : true
+    wait_until_deployed: true
     on:
       all_branches: true
 
@@ -39,12 +39,12 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: travis-deploy-bucket
-    key : springboot-webservice.zip
-    bundle_type : zip
-    application : ec2-loginjoindb  #CodeDeploy 애플리케이션 이름
-    deployment_group : ec2-loginjoindb-group
+    key: springboot-webservice.zip
+    bundle_type: zip
+    application: ec2-loginjoindb-codedeploy-app  #CodeDeploy 애플리케이션 이름
+    deployment_group: ec2-loginjoindb-codedeploy-app-group
     region: ap-northeast-2
-    wait-until-deployed : true
+    wait-until-deployed: true
 
 # CI 실행 완료 시 메일로 알람5
 notifications:

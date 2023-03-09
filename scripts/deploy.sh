@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY=/home/ec2-user/app/step2
+REPOSITORY=
 PROJECT_NAME=ec2-loginjoindb #해당 위치에 properties에 작성한 프로젝트명과 동일하게 작성합니다.
 
 echo "> Build 파일 복사"
@@ -8,6 +8,8 @@ cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 현재 구동 중인 애플리케이션 pid 확인"
 CURRENT_PID=$(pgrep -f $PROJECT_NAME)
+#CURRENT_PID=$(pgrep -f ec2-loginjoindb.jar)
+
 
 echo "현재 구동 중인 애플리케이션 pid: $CURRENT_PID"
 
@@ -20,7 +22,8 @@ else
 fi
 
 echo "> 새 애플리케이션 배포"
-JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
+#JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
+JAR_NAME=$(ls -tr $REPOSITORY/ | grep ec2- | tail -n 1)
 
 echo "> JAR_NAME: $JAR_NAME"
 echo "> $JAR_NAME 에 실행권한 추가"

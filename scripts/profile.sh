@@ -12,14 +12,16 @@ function find_idle_profile(){
      CURRENT_PROFILE=$(curl -s http://localhost/profile)
  fi
 
- if [ "$(CURRENT_PROFILE)" == "real1" ]
+ echo "> CURRENT_PROFILE : ${CURRENT_PROFILE}"
+
+ if [ ${CURRENT_PROFILE} == real1 ]
  then
      IDLE_PROFILE=real2
  else
      IDLE_PROFILE=real1
  fi
 
- echo "${IDLE_PROFILE}"
+ echo "> IDLE_PROFILE : ${IDLE_PROFILE}"
 }
 
 # 쉬고 있는 profile의 port 찾기

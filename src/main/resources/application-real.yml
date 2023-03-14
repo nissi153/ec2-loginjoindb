@@ -1,0 +1,61 @@
+# ---를 통해서 여러개의 profile을 만들어줄 수 있다.
+# 8081로 동작하는 set1과 8082로 동작하는 set2를 만들어준다
+
+server:
+  port: 8080    # 기본 포트 설정
+
+---
+spring:
+  config:
+    activate:
+      on-profile: real1  # real1 프로필 선택시 아래의 환경설정이 적용된다.
+
+server:
+  port: 8081    # 프로필마다 포트번호 다르게 설정
+
+  datasource:
+  driver-class-name: org.mariadb.jdbc.Driver
+  hikari:
+    jdbc-url: jdbc:mariadb://database-ec2-loginjoindb.cpqilec1sptp.ap-northeast-2.rds.amazonaws.com:3306/mydb?characterEncoding=UTF-8&serverTimezone=UTC
+  username: root
+  password: 12345678
+
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate: info
+
+---
+spring:
+  config:
+    activate:
+      on-profile: real2    # real2 프로필 선택시 아래의 환경설정이 적용된다.
+
+server:
+  port: 8082    # 프로필마다 포트번호 다르게 설정
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    hikari:
+      jdbc-url: jdbc:mariadb://database-ec2-loginjoindb.cpqilec1sptp.ap-northeast-2.rds.amazonaws.com:3306/mydb?characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 12345678
+
+  jpa:
+    database-platform: org.hibernate.dialect.MariaDB103Dialect
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate: info

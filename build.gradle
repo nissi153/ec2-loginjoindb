@@ -22,9 +22,10 @@ jar {
 	enabled = false
 }
 
+//archiveFileName = 'ec2-loginjoindb'+ new Date().format("yyyyMMddHHmmss") + '.jar'
 bootJar{
 	archivesBaseName = 'ec2-loginjoindb'
-	archiveFileName = 'ec2-loginjoindb'+ new Date().format("yyyyMMddHHmmss") + '.jar'
+	archiveFileName = 'ec2-loginjoindb.jar'
 	archiveVersion = "1.0.0"
 }
 

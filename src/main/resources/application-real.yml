@@ -1,15 +1,16 @@
-# ---를 통해서 여러개의 profile을 만들어줄 수 있다.
-# 8081로 동작하는 set1과 8082로 동작하는 set2를 만들어준다
-
-server:
-  port: 8080    # 기본 포트 설정
+# default
+spring:
+  profiles:
+    active: real1 # 활성 프로필 설정
+  # 또는 java 실행시 -D옵션으로 설정할 수도 있음.
+  # ex) $ java -jar -Dspring.profiles.active=real1 demo-0.0.1-SNAPSHOT.jar
 
 ---
 spring:
   config:
     activate:
-      on-profile: real1  # real1 프로필 선택시 아래의 환경설정이 적용된다.
-
+      on-profile: real1  # real1 프로필 활성화시 아래의 환경설정이 적용된다.
+# 기타 설정 ..
 server:
   port: 8081    # 프로필마다 포트번호 다르게 설정
 

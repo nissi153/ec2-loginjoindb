@@ -7,12 +7,12 @@ function find_idle_profile(){
 
  if [ ${RESPONSE_CODE} -ge 400 ] # 400 보다 크면(즉, 40x/50x 에러 모두 포함)
  then
-     CUREENT_PROFILE=real2
+     CURRENT_PROFILE=real2
  else
-     CUREENT_PROFILE=$(curl -s http://localhost/profile)
+     CURRENT_PROFILE=$(curl -s http://localhost/profile)
  fi
 
- if [ "$(CUREENT_PROFILE)" == real1 ]
+ if [ "$(CURRENT_PROFILE)" == "real1" ]
  then
      IDLE_PROFILE=real2
  else
@@ -26,7 +26,7 @@ function find_idle_profile(){
 function find_idle_port() {
    IDLE_PROFILE=$(find_idle_profile)
 
-   if [ "${IDLE_PROFILE}" == real1 ]
+   if [ "${IDLE_PROFILE}" == "real1" ]
    then
        echo "8081"
    else

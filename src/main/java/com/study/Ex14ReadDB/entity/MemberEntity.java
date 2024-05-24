@@ -8,7 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="MEMBER")
+@Table(name="member")
 @Getter
 //@Setter : 자체 setter메소드를 사용한다.
 @AllArgsConstructor
